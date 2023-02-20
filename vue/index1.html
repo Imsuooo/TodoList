@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue기초익히기</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{ nextYear('안녕!') }}
+        <br>
+        <input :type="type" :value="inputDate">
+        <br>
+        <br>
+        <a v-bind:href="link">네이버연결</a>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return{
+                    person: {
+                        message: 'ㅇㅇ',
+                        age: 30
+                    },
+                    inputDate: 'ㅇㅇㅇㅇ',
+                    type:'text',
+                    link:'https://www.naver.com/'
+                }
+            },
+            methods: {
+                nextYear(a) {
+                    return a+ this.person.message + '는 내년에' +(this.person.age +1)+ '살 입니다';
+                },
+                otherMethod () {
+                    this.nextYear()
+                }
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px; margin: 50px auto;}
+    </style>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if와 v-show</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <template v-if="show">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+        <br>
+       <div v-else="show">No</div>
+       <button @click="toggleShow">Toggle</button>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return{
+                    show :true
+
+                }
+            },
+            methods : {
+                toggleShow(){
+                    this.show=!this.show
+                }
+            },
+
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px; margin: 50px auto; font-size: 3rem;}
+
+    </style>
+</body>
+</html>

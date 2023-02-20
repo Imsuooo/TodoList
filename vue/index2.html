@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue기초익히기2</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <div id="app">
+      <!--   {{ year }}
+        <br>
+        <br>
+        <button v-on:click="minus">minus</button>
+        <button v-on:click="plus">plus</button> -->
+        <form v-on:submit.prevent="submit">
+            <input type="text"><br>
+            <button ttype="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return{
+                   /*  year : 2023 */
+                }
+            },
+            methods : {
+               /*  plus(){
+                    this.year++;
+                },
+                minus(){
+                    this.year--;
+                } */
+            },
+            submit(){
+
+                alert('submitted');
+                console.log('hello')
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px; margin: 50px auto;}
+    </style>
+</body>
+</html>

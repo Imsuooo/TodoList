@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div :class="{blue:isBlue,bold:isBold}">Hello</div>
+        <div :style="{color : 'yellow'}">Hello</div>
+        <button @click="update">click</button>
+    </div>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return{
+                    isBlue : false,
+                    isBold : false,
+                }
+            },
+            methods : {
+               update(){
+                this.isBlue=!this.isBlue
+                this.isBold=!this.isBold
+               }
+            },
+
+        }).mount('#app')
+    </script>
+    <style>
+        #app{width: 1000px; margin: 50px auto; font-size: 3rem;}
+        .blue{color: #427dc1;}
+        .bold {font-weight: bold;}
+    </style>
+</body>
+</html>
